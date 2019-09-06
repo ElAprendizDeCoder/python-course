@@ -1,0 +1,5 @@
+#!/bin/bash
+
+INTIF="eth0"
+L2LIF="tap_vpn0"
+VPNIF="tap_vpn1"

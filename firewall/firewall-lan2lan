@@ -1,0 +1,10 @@
+#!/bin/bash
+route add 13.66.57.18 gw 173.193.187.41
+route add 200.52.82.218 gw 173.193.187.41
+
+route add -net 192.168.0.0/24 gw 192.168.40.1
+route add -net 10.130.0.0/24 gw 192.168.40.1
+route add -net 10.130.1.0/24 gw 192.168.40.1
+route add -net 10.120.0.0/16 gw 192.168.40.1
+route add -net 192.168.1.0/24 gw 192.168.40.1
+

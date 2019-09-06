@@ -1,0 +1,19 @@
+#!/bin/bash
+
+INTIF="eth0"
+EXTIF="eth1"
+L2LIF="tap_vpn0"
+
+IPTABLES=/sbin/iptables
+
+echo "FWD From Internal Interface  $INTIF to LAN-to-LAN at $L2LIF"
+$IPTABLES -A FORWARD -i $L2LIF -o $INTIF -m state --state ESTABLISHED,RELATED -j ACCEPT
+$IPTABLES -A FORWARD -i $INTIF -o $L2LIF -j ACCEPT
+$IPTABLES -t nat -A POSTROUTING  -o $L2LIF -j MASQUERADE 
+
+echo "FWD From LAN-to_LAN $L2LIF to Internal Interafece at $INTIF"
+$IPTABLES -A FORWARD -i $INTIF -o $L2LIF -m state --state ESTABLISHED,RELATED -j ACCEPT
+$IPTABLES -A FORWARD -i $L2LIF -o $INTIF -j ACCEPT
+$IPTABLES -t nat -A POSTROUTING  -o $INTIF -j MASQUERADE
+
+

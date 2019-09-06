@@ -1,0 +1,22 @@
+#!/bin/bash
+
+INTIF="eth0"
+EXTIF="eth1"
+L2LIF="tap_vpn0"
+
+# Creamos las cadenas 
+iptables -N blockin
+iptables -N blockout
+iptables -N blockfwd
+
+# Pegamos las respectivas cadenas a su cadena destinio
+iptables -A INPUT -j blockin
+iptables -A OUTPUT -j blockout
+iptables -A FORWARD -j blockfwd
+
+
+# Deshabilitando SMTP desde la red interna de Alianza
+iptables -A blockfwd -i $INTIF -p tcp --dport 25 -j DROP
+iptables -A blockfwd -i $L2LIF -p tcp --dport 25 -j DROP
+
+

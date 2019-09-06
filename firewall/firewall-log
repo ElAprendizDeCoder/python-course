@@ -1,0 +1,13 @@
+#!/bin/bash
+
+INTIF="eth0"
+L2LIF="tap_vpn0"
+VPNIF="tap_vpn1"
+
+#iptables -I FORWARD -i $VPNIF -s 0.0.0.0/0 -p tcp --dport 443 -j LOG --log-prefix='[iptables] '
+#iptables -I FORWARD -i $VPNIF -s 0.0.0.0/0 -p tcp --dport 80 -j LOG --log-prefix='[iptables] '
+
+#iptables -t nat -I PREROUTING 1 -j LOG
+#iptables -t nat -I POSTROUTING 1 -j LOG
+#iptables -t nat -I OUTPUT 1 -j LOG
+#iptables -A INPUT -p tcp -j LOG

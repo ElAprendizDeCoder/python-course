@@ -1,0 +1,17 @@
+#!/bin/bash
+############################################################
+# Linux Gateway Firwall
+#
+# Archivo: firewall
+#
+# Autor:   Jordi Domenech M. (jordi@domenech.com.mx)
+# Licencia: Privada
+##############################################################
+RUTA=/etc/firewall
+$RUTA/firewall-init
+$RUTA/firewall-whitelist
+$RUTA/firewall-blocking
+$RUTA/firewall-forward
+$RUTA/firewall-clients
+$RUTA/firewall-log
+$RUTA/firewall-lan2lan

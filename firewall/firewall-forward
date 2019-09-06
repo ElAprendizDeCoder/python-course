@@ -1,0 +1,8 @@
+#!/bin/bash
+
+INTIF="eth0"
+EXTIF="eth1"
+L2LIF="tap_vpn0"
+
+
+
